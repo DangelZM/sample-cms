@@ -16,10 +16,7 @@ class Controller {
         {
 			$this->layout->setView($action);
             $this->$method($action); // вызов методов которые мы задали, для существующих страниц
-        } else {
-			$this->layout->setView('not-found.tpl');
-            $this->notFound(); // а сдесь для тех которые 404 тоесть пользователь ввел что то не то и страницы для адреса нет
-        }
+        } 
     }
 
     private function homeAction(){
@@ -49,7 +46,7 @@ class Controller {
         $this->layout->render($data);
     }
 
-    function notFound(){
+    function notfoundAction(){
         $this->layout->render();
     }
 

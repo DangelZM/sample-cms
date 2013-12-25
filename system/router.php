@@ -5,8 +5,12 @@ class Router {
 
     public function __construct($route, $route_array)
     {
-        //пока пусть будет так
-        $this->path = $route_array[$route];
+		if(isset($route_array[$route])){
+			$this->path = $route_array[$route];
+		} else {
+			$this->path = 'notfound';
+		}
+        
         //echo 'наш путь - ' . $this->path;
     }
 
