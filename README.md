@@ -1,4 +1,4 @@
-sample-cms
+Sample-cms
 ==========
 
-code sample
+Code sample
