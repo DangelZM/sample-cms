@@ -1,3 +1,4 @@
-<?php include('header.tpl'); ?>
+{header}
+	{menu}
         {content}
-<?php include('footer.tpl'); ?>
+{footer}
