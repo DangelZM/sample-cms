@@ -18,12 +18,12 @@ class Layout {
 
         $layout = file_get_contents('../views/' . $this->template . '/main.tpl');
         $view = file_get_contents('../views/' . $this->template . '/pages/' . $this->view . '.tpl');
-
+		
         foreach($data as $key=>$val){
             $view = str_replace('{' . $key . '}', $val , $view);
         }
 
-        $output = str_replace('{content}', $val , $layout);
+        $output = str_replace('{content}', $view , $layout);
 
         echo $output;
 
