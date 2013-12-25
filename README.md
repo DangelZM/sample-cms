@@ -1,3 +1,8 @@
-The OpenShift `php` cartridge documentation can be found at:
+Sample CMS
+==========
 
-https://github.com/openshift/origin-server/tree/master/cartridges/openshift-origin-cartridge-php/README.md
+Код пример
+
+Рабочий пример можно посмотреть на сайте - http://samplecms-webdevlab.rhcloud.com/
+
+
