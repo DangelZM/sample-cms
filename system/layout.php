@@ -9,15 +9,12 @@ class Layout {
         $this->template = $template;
     }
 
-    /**
-     * @param mixed $view
-     */
     public function setView($view)
     {
         $this->view = $view;
     }
 
-    public function render($data) {
+    public function render($data = array()) {
 
         $layout = file_get_contents('../views/' . $this->template . '/main.tpl');
         $view = file_get_contents('../views/' . $this->template . '/pages/' . $this->view . '.tpl');
