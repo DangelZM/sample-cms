@@ -1,5 +1,5 @@
 <?php
-class Controller {
+class App {
 
     private $layout;
 
@@ -9,7 +9,7 @@ class Controller {
     }
 
 
-    function setAction($action )
+    function dispatch($action )
     {
         $method = $action . 'Action'; //метод
         if(method_exists($this, $method)) // проверяем есть ли такой метод

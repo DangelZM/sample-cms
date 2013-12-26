@@ -7,7 +7,7 @@ class Config {
         $this->config = $config;
     }
 
-    public function getConfig($res)  // дальше будем использовать так Config->getConfig(db)
+    public function get($res)
     {
         return $this->config[$res];
     }
