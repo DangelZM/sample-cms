@@ -10,9 +10,9 @@
     };
 
     if (is_file('../config.php')) {
-        $config_array = require_once('config.php');
+        $config_array = require_once('../config.php');
     } else {
-        $config_array = require_once('config.def.php');
+        $config_array = require_once('../config.def.php');
     }
 
     include_once("../system/start_engine.php"); // запускаем движек
