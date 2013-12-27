@@ -18,10 +18,16 @@
     include_once("../system/start_engine.php"); // запускаем движек
     include_once("../system/config.php"); // класс - конфига
 
-    //TODO add Registry Class
+    $registry = new Registry();
 
     $config = new Config($config_array);
+    $registry->set('config', $config);
+
     $router = new Router($route, $config->get('router'));
+    $registry->set('router', $router);
+
     $layout = new Layout($config->get('template'));
-    $app = new App($layout);
+    $registry->set('router', $layout);
+
+    $app = new App($layout, $registry);
     $app->dispatch($router->getPath());

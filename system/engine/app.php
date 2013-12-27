@@ -1,15 +1,17 @@
 <?php
-class App {
+final class App {
 
     private $layout;
+    private $registry;
 
-    function __construct($layout)
+    function __construct($layout, $registry)
     {
         $this->layout = $layout;
+        $this->registry = $registry;
     }
 
 
-    function dispatch($action )
+    function dispatch($action)
     {
         $method = $action . 'Action'; //метод
         if(method_exists($this, $method)) // проверяем есть ли такой метод
