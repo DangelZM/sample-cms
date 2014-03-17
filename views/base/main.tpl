@@ -1,4 +1,4 @@
 {header}
 	{menu}
-        {content}
+    {content}
 {footer}

@@ -12,7 +12,10 @@ return array(
         'contact' => 'contact',
         'about' => 'about',
     ),
-    'template' => 'base'
+    'template' => array(
+        'dir' => 'views',
+        'them' => 'base'
+    )
 );
 
  

@@ -1,12 +1,14 @@
 <?php
 class Layout {
 
-    private $template;
+    private $them;
+    private $template_dir;
     private $view;
 
-    function __construct($template)
+    function __construct($template = array())
     {
-        $this->template = $template;
+        $this->template_dir = $template['dir'];
+        $this->them = $template['them'];
     }
 
     public function setView($view)
@@ -14,20 +16,37 @@ class Layout {
         $this->view = $view;
     }
 
+    public function renderView($view, $data = array()) {
+        $file = $view;
+
+        if (file_exists($file)) {
+            extract($data);
+
+            ob_start();
+
+            require($file);
+
+            $output = ob_get_contents();
+
+            ob_end_clean();
+
+            return $output;
+        } else {
+            trigger_error('Error: Could not load template ' . $file . '!');
+            exit();
+        }
+    }
+
     public function render($data = array()) {
 
-        $header = file_get_contents('../views/' . $this->template . '/header.tpl');
-        $menu = file_get_contents('../views/' . $this->template . '/menu.tpl');
-        $view = file_get_contents('../views/' . $this->template . '/pages/' . $this->view . '.tpl');
-        $footer = file_get_contents('../views/' . $this->template . '/footer.tpl');
-		
+        $header = $this->renderView('../views/' . $this->them . '/header.tpl', $data);
+        $menu = $this->renderView('../views/' . $this->them . '/menu.tpl', $data);
+        $content = $this->renderView('../views/' . $this->them . '/pages/' . $this->view . '.tpl', $data);
+        $footer = $this->renderView('../views/' . $this->them . '/footer.tpl', $data);
+
+
+		$layout = file_get_contents('../views/' . $this->them . '/main.tpl');
         
-		$layout = file_get_contents('../views/' . $this->template . '/main.tpl');
-        
-		foreach($data as $key=>$val){
-            $view = str_replace('{' . $key . '}', $val , $view);
-        }
-		
 		$view_placeholders = array(
 			'{header}',
 			'{menu}',
@@ -38,7 +57,7 @@ class Layout {
 		$view_data = array(
 			$header,
 			$menu,
-			$view,
+            $content,
 			$footer
 		);
 

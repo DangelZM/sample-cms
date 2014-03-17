@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Test </title>
+    <title> <?php echo $meta_title; ?> </title>
 </head>
 <body>
 
 <header>
-    header
+    <?php $header_text; ?>
 </header>

@@ -1,3 +1,3 @@
-{title}
+<?php echo $title; ?>
 <hr>
-{text}
+<?php echo $text; ?>
