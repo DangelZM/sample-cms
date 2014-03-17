@@ -12,7 +12,7 @@ final class App {
         $this->registry = $registry;
         $this->document = array(
             'meta_title' => 'SampleCMS - Example site',
-            'header_title' => 'SampleCMS',
+            'header_text' => 'SampleCMS',
             'footer_text' => '&copy;SampleCMS, 2013 -' . date("Y")
         );
     }

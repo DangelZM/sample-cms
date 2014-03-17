@@ -6,5 +6,5 @@
 <body>
 
 <header>
-    <?php $header_text; ?>
+    <h3><?php echo $header_text; ?></h3>
 </header>
