@@ -62,7 +62,7 @@ final class App {
     }
 
     function notfoundAction(){
-        $this->layout->render();
+        $this->layout->render($this->document);
     }
 
 }
